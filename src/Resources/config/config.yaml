@@ -1,0 +1,23 @@
+imports:
+    - { resource: "@Tavy315SyliusInvoicesPlugin/Resources/config/app/grids.yaml" }
+
+services:
+    tavy315_sylius_invoices.context.invoice:
+        arguments:
+            - "@tavy315_sylius_invoices.repository.customer_invoice"
+            - "@security.token_storage"
+        class: Tavy315\SyliusInvoicesPlugin\Context\InvoiceContext
+        public: true
+
+    Tavy315\SyliusInvoicesPlugin\Context\InvoiceContextInterface:
+        alias: tavy315_sylius_invoices.context.invoice
+
+    tavy315_sylius_invoices.controller.action.list_invoice_products:
+        arguments:
+            - "@tavy315_sylius_invoices.context.invoice"
+            - "@tavy315_sylius_invoices.repository.product"
+            - "@twig"
+            - "@sylius.context.shopper"
+        class: Tavy315\SyliusInvoicesPlugin\Controller\Action\ListInvoiceProductsAction
+        tags:
+            - { name: controller.service_arguments }

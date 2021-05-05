@@ -1,0 +1,60 @@
+sylius_grid:
+    templates:
+        action:
+            invoice: "@Tavy315SyliusInvoicesPlugin/Account/CustomerInvoice/Grid/Action/invoice.html.twig"
+    grids:
+        tavy315_sylius_invoices_shop_account_invoice:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: "%tavy315_sylius_invoices.model.customer_invoice.class%"
+                    repository:
+                        method: createByCustomerQueryBuilder
+                        arguments:
+                            - "expr:service('sylius.context.customer').getCustomer().getId()"
+            sorting:
+                documentDate: desc
+            fields:
+                documentNo:
+                    type: twig
+                    label: tavy315_sylius_invoices.ui.document_no
+                    sortable: ~
+                    options:
+                        template: "@Tavy315SyliusInvoicesPlugin/Account/CustomerInvoice/Grid/Field/document_no.html.twig"
+                documentDate:
+                    type: datetime
+                    label: tavy315_sylius_invoices.ui.document_date
+                    sortable: ~
+                    options:
+                        format: m/d/Y
+                totalAmount:
+                    type: twig
+                    label: tavy315_sylius_invoices.ui.total_amount
+                    path: .
+                    sortable: totalAmount
+                    options:
+                        template: "@Tavy315SyliusInvoicesPlugin/Account/CustomerInvoice/Grid/Field/total_amount.html.twig"
+                paidAmount:
+                    type: twig
+                    label: tavy315_sylius_invoices.ui.paid_amount
+                    path: .
+                    sortable: totalAmount
+                    options:
+                        template: "@Tavy315SyliusInvoicesPlugin/Account/CustomerInvoice/Grid/Field/paid_amount.html.twig"
+                dueAmount:
+                    type: twig
+                    label: tavy315_sylius_invoices.ui.due_amount
+                    path: .
+                    sortable: totalAmount
+                    options:
+                        template: "@Tavy315SyliusInvoicesPlugin/Account/CustomerInvoice/Grid/Field/due_amount.html.twig"
+            actions:
+                item:
+                    show:
+                        type: shop_show
+                        label: sylius.ui.show
+                        options:
+                            link:
+                                route: tavy315_sylius_invoices_shop_account_invoice_products
+                                parameters:
+                                    document: resource.documentNo

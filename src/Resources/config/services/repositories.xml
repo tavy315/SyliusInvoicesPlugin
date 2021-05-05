@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="tavy315_sylius_invoices.repository.customer_invoice" class="Tavy315\SyliusInvoicesPlugin\Repository\CustomerInvoiceRepository" />
+
+        <service id="Tavy315\SyliusInvoicesPlugin\Repository\CustomerInvoiceRepositoryInterface" alias="tavy315_sylius_invoices.repository.customer_invoice" />
+
+        <service id="tavy315_sylius_invoices.repository.product" class="Tavy315\SyliusInvoicesPlugin\Repository\ProductRepository">
+            <argument type="service" id="sylius.repository.product" />
+        </service>
+
+        <service id="Tavy315\SyliusInvoicesPlugin\Repository\ProductRepositoryInterface" alias="tavy315_sylius_invoices.repository.product" />
+    </services>
+</container>

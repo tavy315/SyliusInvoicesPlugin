@@ -1,0 +1,7 @@
+tavy315_sylius_invoices_admin_api:
+    prefix: /api/v{version}
+    resource: routing/admin_api.yaml
+
+tavy315_sylius_invoices_shop:
+    prefix: /account/invoices
+    resource: routing/shop.yaml
