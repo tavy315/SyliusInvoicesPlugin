@@ -8,7 +8,7 @@ tavy315_sylius_invoices_shop_account_invoice_index:
             template: "@Tavy315SyliusInvoicesPlugin/Account/CustomerInvoice/Grid/index.html.twig"
             grid: tavy315_sylius_invoices_shop_account_invoice
 
-tavy315_sylius_invoices_shop_account_invoice_products:
+tavy315_sylius_invoices_shop_account_invoice_show:
     path: /{document}
     methods: [GET]
     defaults:
