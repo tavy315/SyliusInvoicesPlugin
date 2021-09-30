@@ -20,7 +20,7 @@
         <field name="documentDate" column="document_date" type="date" nullable="true" />
         <field name="dueAmount" column="due_amount" type="integer" />
         <field name="paidAmount" column="paid_amount" type="integer" />
-        <field name="products" type="array" />
+        <field name="products" type="json" />
         <field name="totalAmount" column="total_amount" type="integer" />
         <field name="url" type="string" nullable="true" />
         <field name="createdAt" column="created_at" type="datetime">
