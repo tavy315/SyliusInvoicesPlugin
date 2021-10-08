@@ -2,7 +2,7 @@ tavy315_sylius_invoices_shop_account_invoice_index:
     path: /
     methods: [GET]
     defaults:
-        _controller: tavy315_sylius_invoices.controller.customer_invoice:indexAction
+        _controller: tavy315_sylius_invoices.controller.customer_invoice::indexAction
         _sylius:
             section: shop_account
             template: "@Tavy315SyliusInvoicesPlugin/Account/CustomerInvoice/Grid/index.html.twig"

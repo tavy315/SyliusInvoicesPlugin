@@ -40,7 +40,6 @@ final class Configuration implements ConfigurationInterface
                                         ->scalarNode('controller')->defaultValue(ResourceController::class)->cannotBeEmpty()->end()
                                         ->scalarNode('factory')->defaultValue(Factory::class)->cannotBeEmpty()->end()
                                         ->scalarNode('form')->defaultValue(CustomerInvoiceType::class)->cannotBeEmpty()->end()
-                                        ->scalarNode('interface')->defaultValue(CustomerInvoiceInterface::class)->cannotBeEmpty()->end()
                                         ->scalarNode('model')->defaultValue(CustomerInvoice::class)->cannotBeEmpty()->end()
                                         ->scalarNode('repository')->defaultValue(CustomerInvoiceRepository::class)->cannotBeEmpty()->end()
                                     ->end()

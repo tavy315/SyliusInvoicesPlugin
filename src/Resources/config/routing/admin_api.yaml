@@ -21,7 +21,7 @@ tavy315_sylius_invoices_admin_api_customer_invoice_update:
     path: /customers/{customer}/invoices/{documentNo}
     methods: [ PATCH, PUT ]
     defaults:
-        _controller: "tavy315_sylius_invoices.controller.customer_invoice:updateAction"
+        _controller: "tavy315_sylius_invoices.controller.customer_invoice::updateAction"
         _sylius:
             criteria:
                 customer: $customer
